@@ -35,7 +35,7 @@ const handlePurchase =() => {
     setshowmodal(false)
 
   }
-  const startCheckout = async () =>{
+  const startCheckout = async (id: string) =>{
 try {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/checkout`,{
@@ -65,7 +65,7 @@ try {
       setshowmodal(false)
       router.push("/login")
     }else{
-startCheckout()
+startCheckout(book.id)
     }
     
 
