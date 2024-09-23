@@ -1,7 +1,6 @@
-import Image from "next/image";
 import Book from "./components/Book";
 import { getAllBooks } from "./lib/microcms/client";
-import { BookType } from "./types/types";
+import { BookType, User } from "./types/types";
 import { getServerSession } from "next-auth";
 import { nextAuthOptions } from "./lib/next-auth/options";
 
@@ -10,8 +9,8 @@ import { nextAuthOptions } from "./lib/next-auth/options";
 export default async function Home() {
   const { contents } = await getAllBooks();
   const session = await getServerSession(nextAuthOptions);
-  const user: any = session?.user;
-  let purchasedIds :any
+  const user = session?.user as User;
+  let purchasedIds :string[]
   
   if(user){
     const response = await fetch(
