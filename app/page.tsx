@@ -33,7 +33,8 @@ export default async function Home() {
           <Book key={book.id} 
           book={book}    
           user ={user}
-          isPurchased={purchasedIds.includes(book.id)}/>
+          isPurchased={Array.isArray(purchasedIds) && purchasedIds.includes(book.id)} // 配列かどうか確認
+          />
         ))}
       </main>
     </>
