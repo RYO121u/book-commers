@@ -1,10 +1,10 @@
 "use server";
 
-import { signIn } from "next-auth/react";
+import { signIn, SignInResponse  } from "next-auth/react";
 
 export async function authenticateWithGitHub() {
   try {
-    const result: any = await signIn("github", {
+    const result: SignInResponse | undefined  = await signIn("github", {
       callbackUrl: "/your-callback-url",
     });
     if (result?.url) {
