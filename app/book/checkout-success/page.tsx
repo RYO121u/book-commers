@@ -26,7 +26,7 @@ const PurchaseSuccess = () => {
           );
           const data = await response.json();
           console.log(data);
-          setBookUrl(data.purchase.bookId);
+          setBookUrl(data.Purchase.bookId);
         } catch (error) {
           console.error("Error fetching data: ", error);
         }
