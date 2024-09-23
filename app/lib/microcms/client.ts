@@ -11,7 +11,7 @@ export const getAllBooks = async () => {
     customRequestInit: {
       cache: "no-store",
     },
-    endpoint: "ebook",
+    endpoint: "bookcommerce",
 
   });
 
@@ -19,7 +19,7 @@ export const getAllBooks = async () => {
 };
 export const getDetailBook = async (contentId: string) => {
   const detailBook = await client.getListDetail<BookType>({
-    endpoint: "ebook",
+    endpoint: "bookcommerce",
     contentId,
   });
 
