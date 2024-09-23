@@ -14,11 +14,11 @@ type BookProps = {
   user: User;
 };
 // eslint-disable-next-line react/display-name
-const Book = ({ book ,isPurchased}: BookProps) => {
+const Book = ({ book ,isPurchased,user}: BookProps) => {
 
 const [showmodal,setshowmodal] = useState(false)
-const {data: session} = useSession()
-const user = session?.user as User;
+// const {data: session} = useSession()
+// const user = session?.user as User;
 const router = useRouter();
 
 
