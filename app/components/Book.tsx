@@ -35,7 +35,7 @@ const handlePurchase =() => {
     setshowmodal(false)
 
   }
-  const startCheckout = async (id: string) =>{
+  const startCheckout = async (_bookId: string) =>{
 try {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/checkout`,{
