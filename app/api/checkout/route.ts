@@ -35,7 +35,13 @@ export async function POST(request: Request,response: Response){
         return NextResponse.json({
             checkout_url: session.url,
           });
-    }catch(err: any) {
-        return NextResponse.json({ message: err.message });
+    }catch(err) {
+        if (err instanceof Error) {
+            console.log(err.message); // エラーメッセージにアクセス
+            return NextResponse.json({ message: err.message });
+          } else {
+            console.log("不明なエラーが発生しました", err);
+          }
+        
     }
 }
