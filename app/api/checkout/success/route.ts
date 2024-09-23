@@ -13,16 +13,17 @@ export async function POST(request:Request,response:Response) {
         
         const existingPurchase = await prisma.purchase.findFirst({
             where: {
-              userId: session.client_reference_id!,
-              bookId: session.metadata?.bookId!,
+              userId: session.client_reference_id ?? 'defaultUserId', // 適切なデフォルト値
+              bookId: session.metadata?.bookId ?? 'defaultBookId', // 適切なデフォルト値
             },
           });
         // 既に購入履歴が存在する場合は、新たに作成しない
     if (!existingPurchase) {
+      
         const Purchase = await prisma.purchase.create({
           data: {
-            userId: session.client_reference_id!,
-            bookId: session.metadata?.bookId!,
+            userId: session.client_reference_id ?? 'defaultUserId', // 適切なデフォルト値
+            bookId: session.metadata?.bookId ?? 'defaultBookId', // 適切なデフォルト値
           },
         });
         return NextResponse.json({ Purchase });
