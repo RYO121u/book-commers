@@ -1,7 +1,7 @@
 "use client";
 import { getProviders, signIn } from "next-auth/react";
-import { InferGetServerSidePropsType } from "next";
-import { useState } from "react";
+// import { InferGetServerSidePropsType } from "next";
+// import { useState } from "react";
 
 // eslint-disable-next-line @next/next/no-async-client-component
 async function Login() {

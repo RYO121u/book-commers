@@ -1,6 +1,6 @@
 import Book from "./components/Book";
 import { getAllBooks } from "./lib/microcms/client";
-import { BookType, User } from "./types/types";
+import { BookType, Purchase, User } from "./types/types";
 import { getServerSession } from "next-auth";
 import { nextAuthOptions } from "./lib/next-auth/options";
 
@@ -18,7 +18,7 @@ export default async function Home() {
     );
     const purchasesData = await response.json();
      purchasedIds = purchasesData.map(
-      (purchase: any) => purchase.bookId
+      (purchase: Purchase) => purchase.bookId
     );
     console.log(purchasedIds)
   }

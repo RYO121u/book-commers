@@ -13,7 +13,7 @@ const PurchaseSuccess = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (sessionId) {
+      if ([sessionId]) {
     
         try {
           const response = await fetch(
