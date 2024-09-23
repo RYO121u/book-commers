@@ -11,7 +11,7 @@ import { User } from "../types/types";
 type BookProps = {
   book: BookType;
   isPurchased:boolean;
-  user: any;
+  user: User;
 };
 // eslint-disable-next-line react/display-name
 const Book = ({ book ,isPurchased}: BookProps) => {
